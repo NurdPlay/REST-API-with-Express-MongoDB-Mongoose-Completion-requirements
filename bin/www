@@ -39,8 +39,8 @@ server.on('listening', onListening);
  */
 
 const options = {
-  key: require('fs').readFileSync(__dirname + '/server.key'),
-  cert: require('fs').readFileSync(__dirname + '/server.cert')
+  key: fs.readFileSync(__dirname + "/server.key"),
+  cert: fs.readFileSync(__dirname + "/server.cert"),
 };
 
 const secureServer = https.createServer(options, app);
@@ -50,7 +50,7 @@ const secureServer = https.createServer(options, app);
  */
 
 secureServer.listen(app.get('setPort'), () => {
-  console.log('Server listening on port ', app.get('setPort'));
+  console.log('Server listening on port ', app.get('secPort'));
 });
 secureServer.on('error', onError);
 secureServer.on('listening', onListening);
